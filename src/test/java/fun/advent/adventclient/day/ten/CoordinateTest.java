@@ -15,15 +15,20 @@ import static junit.framework.TestCase.assertEquals;
 @SpringBootTest
 public class CoordinateTest {
 
-
     @Test
     public void buildCoordinates() {
         String coordinatePair = "position=< 9,  1> velocity=< 0,  2>";
-        Coordinate expected = new Coordinate();
-        expected.move(9, 1);
         Coordinate c = new Coordinate(coordinatePair);
-        assertEquals(expected.getX(), c.getX());
-        assertEquals(expected.getY(), c.getY());
+        assertEquals(9.0, c.getX());
+        assertEquals(1.0, c.getY());
+    }
+
+    @Test
+    public void buildCoordinatesCanHandleNegatives() {
+        String coordinatePair = "position=< -9,  -1> velocity=< 0,  2>";
+        Coordinate c = new Coordinate(coordinatePair);
+        assertEquals(-9.0, c.getX());
+        assertEquals(-1.0, c.getY());
     }
 
     @Test

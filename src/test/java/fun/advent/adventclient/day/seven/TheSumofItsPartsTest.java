@@ -32,4 +32,16 @@ public class TheSumofItsPartsTest {
         String answer = parts.calculateSteps(testStream);
         assertEquals(expected, answer);
     }
+
+    @Test
+    public void calculateStepsCalculatesCorrectIfStepsBecomeAvailableEarlier() {
+//        String expected = "{C=[A, F], A=[B, D]}";
+        String expected = "CABDF";
+        Stream<String> testStream = Stream.of("Step C must be finished before step A can begin.",
+                "Step C must be finished before step F can begin.",
+                "Step A must be finished before step B can begin.",
+                "Step A must be finished before step D can begin.");
+        String answer = parts.calculateSteps(testStream);
+        assertEquals(expected, answer);
+    }
 }

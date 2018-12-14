@@ -57,7 +57,6 @@ public class InventoryManagementSystemTest {
         assertThat(solution, equalTo(0));
     }
 
-
     @Test
     public void generatesChecksumCorrectly() {
         int solution = inventory.generateChecksum(TEST_STREAM);
